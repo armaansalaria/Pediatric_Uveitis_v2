@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-base: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-base);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+[data-text-size='large'] {
+  font-size: 1.15rem;
+}
+[data-text-size='large'] p,
+[data-text-size='large'] li {
+  font-size: 1.15rem;
+  line-height: 1.7;
+}
+
+[data-text-size='xlarge'] {
+  font-size: 1.3rem;
+}
+[data-text-size='xlarge'] p,
+[data-text-size='xlarge'] li {
+  font-size: 1.3rem;
+  line-height: 1.75;
+}
+
+*:focus-visible {
+  outline: 3px solid #0d9488;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body * {
+    visibility: hidden;
+  }
+  #print-area,
+  #print-area * {
+    visibility: visible;
+  }
+  #print-area {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+}
